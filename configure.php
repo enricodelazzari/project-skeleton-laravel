@@ -159,6 +159,10 @@ replace_in_file('src/Domain/Users/Models/User.php', [
     'namespace App\Models;' => 'namespace Domain\Users\Models;',
 ]);
 
+replace_in_file('config/auth.php', [
+    'App\Models\User::class' => 'Domain\Users\Models\User::class',
+]);
+
 edit_composer_json(function ($data) {
     $data['autoload']['psr-4'] = [
         'App\\' => 'src/App/',
