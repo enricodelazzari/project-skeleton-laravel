@@ -163,6 +163,10 @@ replace_in_file('config/auth.php', [
     'App\Models\User::class' => 'Domain\Users\Models\User::class',
 ]);
 
+replace_in_file('config/sanctum.php', [
+    'App\Http\Middleware' => 'Support\Middleware',
+]);
+
 edit_composer_json(function ($data) {
     $data['autoload']['psr-4'] = [
         'App\\' => 'src/App/',
